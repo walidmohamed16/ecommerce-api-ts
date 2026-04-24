@@ -1,31 +1,15 @@
-import { Request } from 'express';
+// src/types/index.ts
 
-// User Types
-export interface IUser {
-  _id: string;
-  name: string;
-  email: string;
-  password: string;
-  role: 'user' | 'admin';
-  phone?: string;
-  address?: {
-    street: string;
-    city: string;
-    country: string;
-  };
-  createdAt: Date;
-  updatedAt: Date;
-  comparePassword(candidatePassword: string): Promise<boolean>;
-}
+import { Request } from 'express';
+import { IUserDocument } from '../models/User';
 
 // Auth Request (request with user)
 export interface AuthRequest extends Request {
-  user?: IUser;
+  user?: IUserDocument;
 }
 
 // Product Types
 export interface IProduct {
-  _id: string;
   name: string;
   description: string;
   price: number;
@@ -36,8 +20,6 @@ export interface IProduct {
   ratings: number;
   numReviews: number;
   isActive: boolean;
-  createdAt: Date;
-  updatedAt: Date;
 }
 
 // Cart Types
@@ -48,12 +30,9 @@ export interface ICartItem {
 }
 
 export interface ICart {
-  _id: string;
   user: string;
   items: ICartItem[];
   totalPrice: number;
-  createdAt: Date;
-  updatedAt: Date;
 }
 
 // Order Types
@@ -64,7 +43,6 @@ export interface IOrderItem {
 }
 
 export interface IOrder {
-  _id: string;
   user: string;
   items: IOrderItem[];
   totalPrice: number;
@@ -75,17 +53,12 @@ export interface IOrder {
   };
   paymentStatus: 'pending' | 'paid' | 'failed';
   orderStatus: 'processing' | 'shipped' | 'delivered' | 'cancelled';
-  createdAt: Date;
-  updatedAt: Date;
 }
 
 // Review Types
 export interface IReview {
-  _id: string;
   user: string;
   product: string;
   rating: number;
   comment: string;
-  createdAt: Date;
-  updatedAt: Date;
 }

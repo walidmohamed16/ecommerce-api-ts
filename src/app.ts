@@ -1,9 +1,14 @@
+// src/app.ts
+
 import express, { Application, Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import errorHandler from './middlewares/errorHandler';
 import ApiError from './utils/apiError';
+
+// Routes
+import authRoutes from './routes/authRoutes';
 
 const app: Application = express();
 
@@ -17,9 +22,12 @@ app.use(morgan('dev'));
 app.get('/', (req: Request, res: Response) => {
   res.json({
     status: 'success',
-    message: 'E-Commerce API is running!'
+    message: 'E-Commerce API (TypeScript) is running!'
   });
 });
+
+// API Routes
+app.use('/api/auth', authRoutes);
 
 // Handle undefined routes
 app.use((req: Request, res: Response, next: NextFunction) => {
