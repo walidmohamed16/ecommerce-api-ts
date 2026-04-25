@@ -8,6 +8,7 @@ import ApiError from './utils/apiError';
 // Routes
 import authRoutes from './routes/authRoutes';
 import productRoutes from './routes/productRoutes';
+import cartRoutes from './routes/cartRoutes';
 
 const app: Application = express();
 
@@ -21,13 +22,14 @@ app.use(morgan('dev'));
 app.get('/', (req: Request, res: Response) => {
   res.json({
     status: 'success',
-    message: 'E-Commerce API is running!'
+    message: 'E-Commerce API (TypeScript) is running!'
   });
 });
 
 // API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
+app.use('/api/cart', cartRoutes);
 
 // Handle undefined routes
 app.use((req: Request, res: Response, next: NextFunction) => {
