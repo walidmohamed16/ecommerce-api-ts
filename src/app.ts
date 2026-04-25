@@ -9,6 +9,7 @@ import ApiError from './utils/apiError';
 import authRoutes from './routes/authRoutes';
 import productRoutes from './routes/productRoutes';
 import cartRoutes from './routes/cartRoutes';
+import orderRoutes from './routes/orderRoutes';
 
 const app: Application = express();
 
@@ -30,6 +31,7 @@ app.get('/', (req: Request, res: Response) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/cart', cartRoutes);
+app.use('/api/orders', orderRoutes);
 
 // Handle undefined routes
 app.use((req: Request, res: Response, next: NextFunction) => {
