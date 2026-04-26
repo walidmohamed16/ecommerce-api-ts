@@ -241,13 +241,13 @@ ecommerce-api-ts/
 
 🔄 Stock Management
 
-Event	           Stock
+Event	                 Stock
 
-Add to Cart	       No change
+Add to Cart	           No change
 
-Create Order	   Decreases ⬇️
+Create Order	          Decreases ⬇️
 
-Cancel Order	   Restores ⬆️
+Cancel Order	           Restores ⬆️
 
 
 👨‍💻 Author
