@@ -218,19 +218,38 @@ ecommerce-api-ts/
 ```
 
 🔒 Security Features
+
+
 ✅ TypeScript Type Safety
+
 ✅ JWT Authentication
+
 ✅ Password Hashing (bcrypt)
+
 ✅ Rate Limiting (100 req/15min)
+
 ✅ Auth Rate Limiting (10 req/15min)
+
 ✅ Helmet Security Headers
+
 ✅ CORS Configuration
+
 ✅ Input Validation (Joi)
+
 ✅ Role-Based Authorization
+
+
 🔄 Stock Management
-Event	Stock
-Add to Cart	No change
-Create Order	Decreases ⬇️
-Cancel Order	Restores ⬆️
+
+Event	           Stock
+
+Add to Cart	       No change
+
+Create Order	   Decreases ⬇️
+
+Cancel Order	   Restores ⬆️
+
+
 👨‍💻 Author
+
 walidmohamed16 - GitHub
