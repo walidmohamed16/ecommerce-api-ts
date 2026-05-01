@@ -17,13 +17,22 @@ const app: Application = express();
 
 // Middlewares
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'https://ecommerce-frontend-wine-three.vercel.app'  
+  ],
+  credentials: true
+}));
 app.use(helmet());
 app.use(morgan('dev'));
 
 // Rate Limiting
 app.use('/api', apiLimiter);
-app.use('/api/auth', authLimiter);
+
+// Apply authLimiter ONLY to login and register (not /me)
+app.use('/api/auth/login', authLimiter);
+app.use('/api/auth/register', authLimiter);
 
 // Test Route
 app.get('/', (req: Request, res: Response) => {
