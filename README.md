@@ -241,15 +241,19 @@ ecommerce-api-ts/
 
 🔄 Stock Management
 
-Event	           Stock
+Event	                 Stock
 
-Add to Cart	       No change
+Add to Cart	           No change
 
-Create Order	   Decreases ⬇️
+Create Order	          Decreases ⬇️
 
-Cancel Order	   Restores ⬆️
+Cancel Order	           Restores ⬆️
 
 
 👨‍💻 Author
 
 walidmohamed16 - GitHub
+
+
+## 🔗 Frontend
+[ecommerce-frontend](https://github.com/walidmohamed16/ecommerce-frontend)
