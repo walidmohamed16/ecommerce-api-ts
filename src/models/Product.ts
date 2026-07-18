@@ -75,4 +75,6 @@ const productSchema = new mongoose.Schema({
 // Index for search
 productSchema.index({ name: 'text', description: 'text' });
 
+productSchema.index({ name: 1, seller: 1 }, { unique: true });
+
 export default mongoose.model<IProductDocument>('Product', productSchema);

@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import Product from '../models/Product';
 import ApiError from '../utils/apiError';
 import { AuthRequest } from '../types';
+import { io } from '../server';
 
 // Create Product (Admin only)
 export const createProduct = async (
@@ -14,6 +15,9 @@ export const createProduct = async (
       ...req.body,
       seller: req.user?._id
     });
+
+    // bnb3at el product el gdyd l kol el users el connected 3la el socket
+    io.emit('PRODUCT_ADDED_EVENT', product);
 
     res.status(201).json({
       status: 'success',
@@ -170,6 +174,8 @@ export const deleteProduct = async (
     }
 
     await Product.findByIdAndDelete(req.params.id);
+    // Emit event to notify all connected clients about the deleted product
+    io.emit('PRODUCT_DELETED_EVENT', req.params.id);
 
     res.status(200).json({
       status: 'success',
